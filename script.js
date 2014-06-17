@@ -70,12 +70,6 @@ proto.attributeChangedCallback = function(name, from, to) {
   if (this.attrs[name]) { this[name] = to; }
 };
 
-/**
- * Handles a click event on the shadow dom.
- * We handle checking/unchecking of radio elements and proxy the click
- * event to any click listeners on the gaia-radio. This is a nice transition
- * that preserves backwards behavior and should make it easier to port apps.
- */
 proto.onClick = function(e) {
   this.checked = !this.checked;
 
