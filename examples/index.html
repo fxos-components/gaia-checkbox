@@ -64,10 +64,10 @@
   <div id="result"></div>
   <script>
     var result = document.getElementById('result');
-    var elements = document.querySelectorAll('gaia-checkbox');
+    var els = document.querySelectorAll('gaia-checkbox');
 
-    [].forEach.call(elements, function(radio, index) {
-      radio.addEventListener('click', function(e) {
+    [].forEach.call(elements, function(el, index) {
+      el.addEventListener('click', function(e) {
         result.textContent = 'Click event for: ' + (index + 1) + ' value: ' +
           e.target.checked;
       });
