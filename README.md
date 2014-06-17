@@ -1,11 +1,11 @@
-# &lt;gaia-radio&gt; ![](https://travis-ci.org/gaia-components/gaia-radio.svg)
+# &lt;gaia-checkbox&gt; ![](https://travis-ci.org/gaia-components/gaia-checkbox.svg)
 
 ## Installation
 
 ```bash
-$ bower install gaia-components/gaia-radio
+$ bower install gaia-components/gaia-checkbox
 ```
 
 ## Examples
 
-- [Example](http://gaia-components.github.io/gaia-radio/examples/)
+- [Example](http://gaia-components.github.io/gaia-checkbox/examples/)
