@@ -36,9 +36,10 @@ gaia-checkbox {
 
 .icon-tick {
   height: 100%;
-  font-size: 65px;
+  font-size: 22px;
   line-height: 22px;
   color: var(--checkbox-color, #000);
+  margin-left: -2px;
   display: none; 
 }
 
