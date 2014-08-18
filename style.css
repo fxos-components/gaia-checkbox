@@ -16,18 +16,28 @@ gaia-checkbox {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 2px solid var(--color-zeta, #a6a6a6);
-  background: #fff;
+  border: var(--checkbox-border, 2px solid #a6a6a6);
+  background: var(--checkbox-background);
   overflow: hidden;
+}
+
+.inner:after {
+  content: " ";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--highlight-color, #000);
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  transform: scale(0);
   transition: var(--button-transition, all 0s);
   transition-delay:  var(--button-transition-delay, 200ms);
 }
 
-.inner:active {
-  background: var(--checkbox-color, #a6a6a6);
-  border-color: var(--checkbox-color, #a6a6a6);
-  padding: 0;
+.inner:active:after {
   transition: none;
+  transform: scale(1);
 }
 
 
@@ -38,7 +48,7 @@ gaia-checkbox {
   height: 100%;
   font-size: 22px;
   line-height: 22px;
-  color: var(--checkbox-color, #000);
+  color: var(--highlight-color, #000);
   margin-left: -2px;
   display: none; 
 }
