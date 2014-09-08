@@ -14,7 +14,7 @@ var utils = require('gaia-component-utils');
 var packagesBaseUrl = window.packagesBaseUrl || '/bower_components/';
 var baseUrl = window.GaiaCheckboxBaseUrl || packagesBaseUrl + 'gaia-checkbox/';
 var stylesheets = [
-  { url: packagesBaseUrl + 'gaia-icons/style.css' },
+  { url: packagesBaseUrl + 'gaia-icons/style-embedded.css' },
   { url: baseUrl + 'style.css', scoped: true }
 ];
 
@@ -70,12 +70,6 @@ proto.attributeChangedCallback = function(name, from, to) {
   if (this.attrs[name]) { this[name] = to; }
 };
 
-/**
- * Handles a click event on the shadow dom.
- * We handle checking/unchecking of radio elements and proxy the click
- * event to any click listeners on the gaia-radio. This is a nice transition
- * that preserves backwards behavior and should make it easier to port apps.
- */
 proto.onClick = function(e) {
   this.checked = !this.checked;
 
@@ -133,7 +127,7 @@ Object.defineProperties(proto, {
 
 var template = document.createElement('template');
 template.innerHTML = '<button class="inner" id="inner">' +
-    '<div class="icon icon-tick"></div>' +
+    '<div class="icon icon-tick" data-icon="tick"></div>' +
   '</button>';
 
 // Register and return the constructor
