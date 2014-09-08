@@ -17,7 +17,7 @@ gaia-checkbox {
   height: 100%;
   border-radius: 50%;
   border: var(--checkbox-border, 2px solid #a6a6a6);
-  background: var(--checkbox-background);
+  background: var(--checkbox-background); /* oddly the checkbox background style is not found */
   overflow: hidden;
 }
 
@@ -48,8 +48,9 @@ gaia-checkbox {
   height: 100%;
   font-size: 22px;
   line-height: 22px;
-  color: var(--highlight-color, #000);
+  color: var(--color-brand-beta, #000);
   margin-left: -2px;
+  transform: scale(0.6);
   display: none; 
 }
 

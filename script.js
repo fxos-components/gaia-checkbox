@@ -14,7 +14,7 @@ var utils = require('gaia-component-utils');
 var packagesBaseUrl = window.packagesBaseUrl || '/bower_components/';
 var baseUrl = window.GaiaCheckboxBaseUrl || packagesBaseUrl + 'gaia-checkbox/';
 var stylesheets = [
-  { url: packagesBaseUrl + 'gaia-icons/style.css' },
+  { url: packagesBaseUrl + 'gaia-icons/style-embedded.css' },
   { url: baseUrl + 'style.css', scoped: true }
 ];
 
@@ -127,7 +127,7 @@ Object.defineProperties(proto, {
 
 var template = document.createElement('template');
 template.innerHTML = '<button class="inner" id="inner">' +
-    '<div class="icon icon-tick"></div>' +
+    '<div class="icon icon-tick" data-icon="tick"></div>' +
   '</button>';
 
 // Register and return the constructor
