@@ -127,7 +127,8 @@ Object.defineProperties(proto, {
 
 var template = document.createElement('template');
 template.innerHTML = '<button class="inner" id="inner">' +
-    '<div class="icon icon-tick"></div>' +
+    '<div class="icon-active"></div>' +
+    '<div class="icon-tick"><a href="#tick" id="tick" data-icon="tick"></a></div>' +
   '</button>';
 
 // Register and return the constructor
