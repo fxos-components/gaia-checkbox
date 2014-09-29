@@ -2,15 +2,8 @@
 /*jshint esnext:true*/
 'use strict';
 
-/**
- * Locals
- */
-
-var baseComponents = window.COMPONENTS_BASE_URL || 'bower_components/';
-var base = window.GAIA_CHECKBOX_BASE_URL || baseComponents + 'gaia-checkbox/';
-
-// Load gaia-icons
-require('gaia-icons')(baseComponents);
+// Load 'gaia-icons' font-family
+require('gaia-icons');
 
 /**
  * Prototype extends from
