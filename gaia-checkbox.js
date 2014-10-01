@@ -234,8 +234,8 @@ addEventListener('click', function(e) {
 function getLinkedCheckbox(label) {
   if (!label) { return; }
   var id = label.getAttribute('for');
-  var checkbox = id && document.getElementById(id);
-  return checkbox;// || label.querySelector('gaia-checkbox');
+  var el = id && document.getElementById(id);
+  return el && el.tagName === 'GAIA-CHECKBOX' ? el : null;// || label.querySelector('gaia-checkbox');
 }
 
 /**
