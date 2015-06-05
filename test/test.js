@@ -1,10 +1,13 @@
+/* jshint maxlen:100 */
+/*global sinon, assert, suite, setup, teardown, test */
 
-suite('GaiaRadio', function() {
+suite('GaiaCheckbox', function() {
+  'use strict';
 
   setup(function() {
     this.sandbox = sinon.sandbox.create();
-    this.container = document.createElement('div');
-    this.container.innerHTML = [
+    this.dom = document.createElement('div');
+    this.dom.innerHTML = [
       '<gaia-checkbox name="a"></gaia-checkbox>',
       '<gaia-checkbox checked name="a"></gaia-checkbox>',
       '<gaia-checkbox name="a"></gaia-checkbox>',
@@ -15,21 +18,29 @@ suite('GaiaRadio', function() {
       '<gaia-checkbox name="b"></gaia-checkbox>'
     ].join('');
 
-    this.checkboxes = this.container.querySelectorAll('gaia-checkbox');
-    document.body.appendChild(this.container);
+    this.el = this.dom.firstElementChild;
+    document.body.appendChild(this.dom);
   });
 
   teardown(function() {
     this.sandbox.restore();
-    document.body.removeChild(this.container);
-    this.container = null;
+    document.body.removeChild(this.dom);
+    this.dom = null;
   });
 
   test('It toggled `checked` when clicked', function() {
-    this.checkboxes[0].inner.click();
-    assert.isTrue(this.checkboxes[0].hasAttribute('checked'));
-    this.checkboxes[0].inner.click();
-    assert.isFalse(this.checkboxes[0].hasAttribute('checked'));
+    this.el.click();
+    assert.isTrue(this.el.hasAttribute('checked'));
+    this.el.click();
+    assert.isFalse(this.el.hasAttribute('checked'));
+  });
+
+  test('It toggles `aria-checked` when clicked (accessibility)', function() {
+    this.el.click();
+    assert.equal(this.el.getAttribute('aria-checked'), 'true');
+
+    this.el.click();
+    assert.equal(this.el.getAttribute('aria-checked'), 'false');
   });
 
   test('It responds to clicks on linked <labels>', function(done) {
@@ -46,13 +57,13 @@ suite('GaiaRadio', function() {
   });
 
   test('It resonds to attribute changes', function() {
-    this.checkboxes[0].setAttribute('checked', '');
-    assert.isTrue(this.checkboxes[0].checked);
+    this.el.setAttribute('checked', '');
+    assert.isTrue(this.el.checked);
   });
 
   test('It responds to setting `.checked` property', function() {
-    assert.isFalse(this.checkboxes[0].hasAttribute('checked'));
-    this.checkboxes[0].checked = true;
-    assert.isTrue(this.checkboxes[0].hasAttribute('checked'));
+    assert.isFalse(this.el.hasAttribute('checked'));
+    this.el.checked = true;
+    assert.isTrue(this.el.hasAttribute('checked'));
   });
 });

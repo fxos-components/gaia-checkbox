@@ -3,14 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <title>GaiaCheckbox Demo</title>
-  <meta name="description" content="GaiaCheckbox Demo" />
+  <meta name="description" content="Demo app for gaia-checkbox" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="bower_components/gaia-theme/gaia-theme.css">
+  <link rel="stylesheet" href="bower_components/gaia-fonts/style.css">
+  <link rel="stylesheet" href="bower_components/base/base.css">
+  <link rel="stylesheet" href="bower_components/gaia-icons/gaia-icons.css">
+  <script src="bower_components/gaia-theme/lib/gaia-theme-selector.js"></script>
+  <script src="bower_components/gaia-component/gaia-component.js"></script>
+  <script src="gaia-checkbox.js"></script>
   <style type="text/css">
     html,
     body {
       margin: 0;
       padding: 0;
       font: 10px sans-serif;
-      background-color: #efefef;
+      background-color: var(--background);
       width: 100%;
       color: #444;
     }
@@ -37,14 +45,10 @@
     li gaia-checkbox {
     }
   </style>
-  <script>
-    window.packagesBaseUrl = '../bower_components/';
-    window.GaiaCheckboxBaseUrl = '../';
-  </script>
-  <script src="../bower_components/gaia-component-utils/index.js"></script>
-  <script src="../script.js"></script>
 </head>
 <body role="application">
+  <gaia-theme-selector></gaia-theme-selector>
+  <h1 class="large l-align-center l-mb-mega">&lt;gaia-checkbox&gt;</h1>
   <section>
     <ul>
       <li>
