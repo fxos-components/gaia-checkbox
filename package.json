@@ -1,6 +1,6 @@
 {
   "name": "gaia-checkbox",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "homepage": "https://github.com/gaia-components/gaia-checkbox",
   "license": "MIT",
   "main": "gaia-checkbox.js",
