@@ -13,8 +13,6 @@ var component = require('gaia-component');
  */
 
 module.exports = component.register('gaia-checkbox', {
-  extends: HTMLInputElement.prototype,
-
   created: function() {
     this.setupShadowRoot();
 
@@ -23,6 +21,7 @@ module.exports = component.register('gaia-checkbox', {
 
     // Setup initial attributes
     this.checked = this.getAttribute('checked');
+    this.disabled = this.getAttribute('disabled');
     this.danger = this.getAttribute('danger');
     this.name = this.getAttribute('name');
 
@@ -31,17 +30,27 @@ module.exports = component.register('gaia-checkbox', {
     setTimeout(() => this.makeAccessible());
   },
 
+  /**
+   * Accessibility enhancements.
+   * Read gaia-checkbox as checkbox.
+   * make it tabable
+   * read its checked and disabled state
+   */
   makeAccessible: function() {
     this.setAttribute('role', 'checkbox');
 
     // Make tabable
     this.tabIndex = 0;
 
-    this.setAttr('aria-checked', this.checked);
+    this.setAttribute('aria-checked', this.checked);
+    if (this.disabled) {
+      this.setAttribute('aria-disabled', true);
+    }
   },
 
   onClick: function(e) {
     e.stopPropagation();
+    if (this.disabled) { return; }
     this.checked = !this.checked;
   },
 
@@ -87,6 +96,22 @@ module.exports = component.register('gaia-checkbox', {
         else { this.setAttr('name', value); }
         this._name = value;
       }
+    },
+
+    disabled: {
+      get: function() { return this._disabled; },
+      set: function(value) {
+        value = !!(value || value === '');
+        if (this._disabled === value) { return; }
+        this._disabled = value;
+        if (value) {
+          this.setAttribute('disabled', '');
+          this.setAttribute('aria-disabled', true);
+        } else {
+          this.removeAttribute('disabled');
+          this.removeAttribute('aria-disabled');
+        }
+      }
     }
   },
 
@@ -104,6 +129,11 @@ module.exports = component.register('gaia-checkbox', {
       display: inline-block;
       cursor: pointer;
       outline: 0;
+    }
+
+    :host([disabled]) {
+      pointer-events: none;
+      opacity: 0.5;
     }
 
     /** Inner
