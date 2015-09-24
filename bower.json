@@ -24,6 +24,6 @@
   },
   "dependencies": {
     "gaia-icons": "gaia-components/gaia-icons#^0.9.0",
-    "gaia-component": "gaia-components/gaia-component#^0.3.8"
+    "gaia-component": "gaia-components/gaia-component#^0.3.9"
   }
 }
