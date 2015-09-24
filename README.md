@@ -12,28 +12,31 @@ Then include folowing files in HTML
 ```html
 <link href="bower_components/gaia-icons/gaia-icons.css"></link>
 <script src="bower_components/gaia-switch/gaia-checkbox.js"></script>
-`
+```
 
 
 ## Examples
 
 - [Example](http://gaia-components.github.io/gaia-checkbox/)
 
+
 ## Usage
 
-```
+```html
 <gaia-checkbox></gaia-checkbox>
 ```
 
+
 Checked
 
-```
+```html
 <gaia-checkbox checked></gaia-checkbox>
 ```
 
+
 Disabled
 
-```
+```html
 <gaia-checkbox disabled></gaia-checkbox>
 ```
 
