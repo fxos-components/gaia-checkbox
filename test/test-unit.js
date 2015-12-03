@@ -2,36 +2,36 @@
 /* global sinon, assert, suite, setup, teardown, test,
    a1, a2, a3, b1, b2, b3, b4 */
 
-suite('GaiaCheckbox', function() {
+suite('fxos-checkbox', function() {
   'use strict';
 
   var accessibility = window['test-utils'].accessibility;
 
   /**
-   * Test role and aria attributes are set correctly inside gaia-checkbox.
+   * Test role and aria attributes are set correctly inside fxos-checkbox.
    * @param  {Element} gaiaCheckbox gaia checkbox to test
    * @param  {Boolean?} checked optional expected aria-checked value
    * @param  {Boolean?} disabled optional expected aria-disabled value
    */
-  function testCheckboxAttributes(gaiaCheckbox, checked, disabled) {
-    assert.equal(gaiaCheckbox.getAttribute('role'), 'checkbox');
-    assert.equal(gaiaCheckbox.getAttribute('aria-checked') === 'true', checked);
-    assert.equal(gaiaCheckbox.hasAttribute('aria-disabled'), disabled);
+  function testCheckboxAttributes(el, checked, disabled) {
+    assert.equal(el.getAttribute('role'), 'checkbox');
+    assert.equal(el.getAttribute('aria-checked') === 'true', checked);
+    assert.equal(el.hasAttribute('aria-disabled'), disabled);
   }
 
   setup(function() {
     this.sandbox = sinon.sandbox.create();
     this.dom = document.createElement('div');
     this.dom.innerHTML = `
-      <gaia-checkbox id="a1" name="a"></gaia-checkbox>
-      <gaia-checkbox id="a2" checked name="a"></gaia-checkbox>
-      <gaia-checkbox id="a3" name="a"></gaia-checkbox>
+      <fxos-checkbox id="a1" name="a"></fxos-checkbox>
+      <fxos-checkbox id="a2" checked name="a"></fxos-checkbox>
+      <fxos-checkbox id="a3" name="a"></fxos-checkbox>
 
       <label id="label" for="b1"></label>
-      <gaia-checkbox id="b1" name="b"></gaia-checkbox>
-      <gaia-checkbox id="b2" checked name="b"></gaia-checkbox>
-      <gaia-checkbox id="b3" name="b"></gaia-checkbox>
-      <gaia-checkbox id="b4" name="b" disabled></gaia-checkbox>`;
+      <fxos-checkbox id="b1" name="b"></fxos-checkbox>
+      <fxos-checkbox id="b2" checked name="b"></fxos-checkbox>
+      <fxos-checkbox id="b3" name="b"></fxos-checkbox>
+      <fxos-checkbox id="b4" name="b" disabled></fxos-checkbox>`;
 
     this.el = this.dom.firstElementChild;
     document.body.appendChild(this.dom);
@@ -97,7 +97,7 @@ suite('GaiaCheckbox', function() {
       setTimeout(done);
     });
 
-    test('gaia-checkboxes default states pass all accessibility checks above' +
+    test('fxos-checkboxes default states pass all accessibility checks above' +
       'and have attributes correctly set',
       function(done) {
         [a2, b2].forEach(chB => testCheckboxAttributes(chB, true, false));
@@ -107,7 +107,7 @@ suite('GaiaCheckbox', function() {
         accessibility.check(this.dom).then(done, done);
       });
 
-    test('gaia-checkboxes pass all accessibility checks mentioned above when ' +
+    test('fxos-checkboxes pass all accessibility checks mentioned above when ' +
       'they are checked and unchecked', function(done) {
       b1.click();
       testCheckboxAttributes(b1, true, false);

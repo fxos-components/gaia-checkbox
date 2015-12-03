@@ -1,45 +1,55 @@
-# &lt;gaia-checkbox&gt; ![](https://travis-ci.org/gaia-components/gaia-checkbox.svg)  [![devDependency Status](https://david-dm.org/gaia-components/gaia-checkbox/dev-status.svg)](https://david-dm.org/gaia-components/gaia-checkbox#info=devDependencies)
-
+# &lt;fxos-checkbox&gt; ![](https://travis-ci.org/fxos-components/fxos-checkbox.svg)
 
 ## Installation
 
 ```bash
-$ bower install gaia-components/gaia-checkbox
+$ npm install fxos-checkbox
 ```
 
-Then include folowing files in HTML
+Then include folowing files
 
 ```html
-<link href="bower_components/gaia-icons/gaia-icons.css"></link>
-<script src="bower_components/gaia-switch/gaia-checkbox.js"></script>
+<link href="node_modules/fxos-icons/fxos-icons.css"></link>
+<script src="node_modules/fxos-component/fxos-component.js"></script>
+<script src="node_modules/fxos-fxos-checkbox/fxos-checkbox.js"></script>
 ```
-
 
 ## Examples
 
-- [Example](http://gaia-components.github.io/gaia-checkbox/)
-
+- [Example](http://fxos-components.github.io/fxos-checkbox/)
 
 ## Usage
 
 ```html
-<gaia-checkbox></gaia-checkbox>
+<fxos-checkbox></fxos-checkbox>
 ```
-
 
 Checked
 
 ```html
-<gaia-checkbox checked></gaia-checkbox>
+<fxos-checkbox checked></fxos-checkbox>
 ```
-
 
 Disabled
 
 ```html
-<gaia-checkbox disabled></gaia-checkbox>
+<fxos-checkbox disabled></fxos-checkbox>
 ```
 
+## Developing locally
+
+1. `git clone https://github.com/fxos-components/fxos-checkbox.git`
+2. `cd fxos-checkbox`
+3. `npm install` (NPM3)
+4. `npm start`
+
+## Readiness
+
+- [x] Accessibility ([@yzen](https://github.com/yzen))
+- [ ] Test Coverage
+- [ ] Performance
+- [ ] Visual/UX
+- [x] RTL ([@fabi1cazenave](https://github.com/fabi1cazenave))
 
 ## Tests
 
