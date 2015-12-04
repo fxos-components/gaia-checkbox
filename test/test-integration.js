@@ -5,7 +5,7 @@
 var assert = require('chai').assert;
 marionette.plugin('helper', require('marionette-helper'));
 
-marionette('gaia-checkbox', function() {
+marionette('fxos-checkbox', function() {
   var client = marionette.client({
     profile: {
       prefs: {
@@ -81,7 +81,7 @@ marionette('gaia-checkbox', function() {
     });
   });
 
-  test('gaia-checkboxes present and visible to the assistive technology',
+  test('fxos-checkboxes present and visible to the assistive technology',
     function() {
       checkboxes.forEach(function(checkbox) {
         // Element is found
@@ -89,7 +89,7 @@ marionette('gaia-checkbox', function() {
         // Element is visible to all (inlcuding assistive technology)
         failOnA11yError(function() {
           assert.isTrue(checkbox.element.displayed());
-        }, 'gaia-checkbox element should be visible both normally and to ' +
+        }, 'fxos-checkbox element should be visible both normally and to ' +
           'assistive technology.');
 
         assert.equal(isChecked(checkbox.element), checkbox.checked,
@@ -97,7 +97,7 @@ marionette('gaia-checkbox', function() {
       });
   });
 
-  test('gaia-checkbox is accessible (no error thrown when clicking and ' +
+  test('fxos-checkbox is accessible (no error thrown when clicking and ' +
     'tapping) when it is checked or unchecked', function() {
     ['click', 'tap'].forEach(function(action) {
       checkboxes.forEach(function(checkbox) {
@@ -114,7 +114,7 @@ marionette('gaia-checkbox', function() {
           checkbox.checkedOnAction.forEach(function(checked) {
             failOnA11yError(function() {
               checkbox.element[action]();
-            }, 'gaia-checkbox should be clickable and tappable including via ' +
+            }, 'fxos-checkbox should be clickable and tappable including via ' +
               'the assistive technology.');
             // Checkbox should toggle checked state when it is clicked or tapped
             assert.equal(isChecked(checkbox.element), checked,
@@ -125,7 +125,7 @@ marionette('gaia-checkbox', function() {
             checkbox.element[action]();
           } catch (err) {
             assert.equal(err.type, 'ElementNotAccessibleError', 'disabled ' +
-              'gaia-checkbox is not clickable or tappable and ' +
+              'fxos-checkbox is not clickable or tappable and ' +
               'clicking/tapping will result in an ElementNotAccessibleError.');
             // Disabled checkbox should not be checked when it is clicked or
             // tapped

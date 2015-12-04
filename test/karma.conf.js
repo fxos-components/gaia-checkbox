@@ -1,41 +1,44 @@
-'use strict';
+
 module.exports = function(config) {
   config.set({
-    frameworks: ['mocha', 'sinon-chai'],
+    basePath: '..',
     browsers: ['firefox_latest'],
     client: {
       captureConsole: true,
-      mocha: {'ui': 'tdd'}
+      mocha: { 'ui': 'tdd' }
     },
-    basePath: '../',
+
+    frameworks: [
+      'mocha',
+      'sinon-chai'
+    ],
 
     customLaunchers: {
       firefox_latest: {
         base: 'FirefoxNightly',
-        prefs: {'dom.webcomponents.enabled': true}
+        prefs: { 'dom.webcomponents.enabled': true }
       }
     },
 
     files: [
-      'bower_components/gaia-component/gaia-component.js',
-      'bower_components/gaia-icons/gaia-icons.js',
-      'gaia-checkbox.js',
+      'node_modules/fxos-component/fxos-component.js',
+      'node_modules/fxos-icons/fxos-icons.js',
+      'fxos-checkbox.js',
       'node_modules/axe-core/axe.min.js',
       'node_modules/test-utils/src/utils.js',
       'node_modules/test-utils/src/accessibility.js',
       'test/test-unit.js',
       {
-        pattern: 'bower_components/gaia-icons/gaia-icons.css',
+        pattern: 'node_modules/fxos-icons/fxos-icons.css',
         included: false
       },
       {
-        pattern: 'bower_components/gaia-icons/fonts/gaia-icons.ttf',
+        pattern: 'node_modules/fxos-icons/fonts/fxos-icons.ttf',
         included: false
       }
     ],
 
     proxies: {
-      '/bower_components/': 'http://localhost:9876/base/bower_components/',
       '/node_modules/': 'http://localhost:9876/base/node_modules/'
     }
   });

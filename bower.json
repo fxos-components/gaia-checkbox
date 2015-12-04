@@ -1,11 +1,10 @@
 {
-  "name": "gaia-checkbox",
-  "version": "0.1.1",
-  "homepage": "https://github.com/gaia-components/gaia-checkbox",
+  "name": "fxos-checkbox",
+  "homepage": "https://github.com/fxos-components/fxos-checkbox",
   "authors": [
     "Wilson Page <wilsonpage@me.com>"
   ],
-  "main": "gaia-checkbox.js",
+  "main": "fxos-checkbox.js",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -15,15 +14,11 @@
     "tests",
     "index.html",
     "package.json",
+    "webpack.config.js",
     "README.md"
   ],
-  "devDependencies": {
-    "base": "gaia-components/base",
-    "gaia-fonts": "gaia-components/gaia-fonts",
-    "gaia-theme": "gaia-components/gaia-theme"
-  },
   "dependencies": {
-    "gaia-icons": "gaia-components/gaia-icons#^0.10.0",
-    "gaia-component": "gaia-components/gaia-component#^0.3.9"
+    "fxos-icons": "fxos-components/fxos-icons#~2.0.0",
+    "fxos-component": "fxos-components/fxos-component#~1.0.0"
   }
 }
