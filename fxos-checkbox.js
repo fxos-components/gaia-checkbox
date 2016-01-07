@@ -54,20 +54,14 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	
+	'use strict';
+
 	/**
 	 * Dependencies
 	 */
 
 	var component = __webpack_require__(1);
 	__webpack_require__(2);
-
-	/**
-	 * Simple logger (toggle 0)
-	 *
-	 * @type {Function}
-	 */
-	var debug = 1 ? console.log.bind(console, '[fxos-checkbox]') : function() {};
 
 	/**
 	 * Exports

@@ -12,6 +12,7 @@
   "devDependencies": {
     "chai": "3.4.1",
     "fxos-font": "^1.0.0",
+    "fxos-theme": "^2.0.2",
     "jshint": "^2.9.1-rc1",
     "karma": "^0.13.9",
     "karma-firefox-launcher": "^0.1.4",
@@ -22,7 +23,7 @@
     "marionette-helper": "0.3.2",
     "marionette-js-runner": "1.1.3",
     "mozilla-download": "^1.1.1",
-    "nws": "^0.6.1",
+    "nws": "^1.1.0",
     "test-utils": "github:fxos-components/test-utils",
     "webpack": "^1.12.9"
   },
