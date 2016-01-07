@@ -115,14 +115,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 
 	  check() {
-	    if (this.checked) { return; }
+	    if (this.disabled) return;
+	    if (this.checked) return;
 	    this.setAttr('checked', '');
 	    this.setAttribute('aria-checked', true);
 	    this._checked = true;
 	  },
 
 	  uncheck() {
-	    if (!this.checked) { return; }
+	    if (this.disabled) return;
+	    if (!this.checked) return;
 	    this.removeAttr('checked');
 	    this.setAttribute('aria-checked', false);
 	    this._checked = false;
@@ -156,7 +158,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      get() { return this._disabled; },
 	      set(value) {
 	        value = !!(value || value === '');
-	        if (this._disabled === value) { return; }
+	        if (this._disabled === value) return;
 	        this._disabled = value;
 	        if (value) {
 	          this.setAttribute('disabled', '');
