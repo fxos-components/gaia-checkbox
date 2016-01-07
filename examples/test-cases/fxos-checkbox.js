@@ -1,1 +1,0 @@
-../../fxos-checkbox.js

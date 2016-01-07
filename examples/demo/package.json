@@ -1,0 +1,17 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fxos-checkbox.js",
+  "dependencies": {
+    "fxos-checkbox": "file:///Users/wilsonpage/Documents/f/fxos-components/fxos-checkbox",
+    "fxos-font": "^1.0.1",
+    "fxos-theme": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
