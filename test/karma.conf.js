@@ -13,6 +13,10 @@ module.exports = function(config) {
       'sinon-chai'
     ],
 
+    reporters: [
+      'mocha'
+    ],
+
     customLaunchers: {
       firefox_latest: {
         base: 'FirefoxNightly',

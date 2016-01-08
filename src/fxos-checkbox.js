@@ -8,6 +8,13 @@ var component = require('fxos-component');
 require('fxos-icons');
 
 /**
+ * Mini Logger
+ *
+ * @type {Function}
+ */
+var debug = 0 ? (...args) => console.log(...args) : () => {};
+
+/**
  * Exports
  */
 
@@ -37,6 +44,7 @@ module.exports = component.register('fxos-checkbox', {
    * - Read its checked and disabled state
    */
   makeAccessible() {
+    debug('make accessible');
     this.setAttribute('role', 'checkbox');
 
     // Make tabable
@@ -47,12 +55,14 @@ module.exports = component.register('fxos-checkbox', {
   },
 
   onClick(e) {
+    debug('click');
     e.stopPropagation();
     if (this.disabled) return;
     this.checked = !this.checked;
   },
 
   toggle(value) {
+    debug('toggle', value);
     value = arguments.length ? value : !this.checked;
     if (value || value === '') this.check();
     else this.uncheck();
@@ -64,6 +74,7 @@ module.exports = component.register('fxos-checkbox', {
     this.setAttr('checked', '');
     this.setAttribute('aria-checked', true);
     this._checked = true;
+    debug('checked');
   },
 
   uncheck() {
@@ -72,12 +83,16 @@ module.exports = component.register('fxos-checkbox', {
     this.removeAttr('checked');
     this.setAttribute('aria-checked', false);
     this._checked = false;
+    debug('unchecked');
   },
 
   attrs: {
     checked: {
       get() { return !!this._checked; },
-      set() { this.toggle(); }
+      set(value) {
+        value = !!value || value === '';
+        this.toggle(value);
+      }
     },
 
     danger: {

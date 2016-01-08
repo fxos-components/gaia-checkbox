@@ -64,6 +64,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	__webpack_require__(2);
 
 	/**
+	 * Mini Logger
+	 *
+	 * @type {Function}
+	 */
+	var debug = 0 ? (...args) => console.log(...args) : () => {};
+
+	/**
 	 * Exports
 	 */
 
@@ -93,6 +100,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	   * - Read its checked and disabled state
 	   */
 	  makeAccessible() {
+	    debug('make accessible');
 	    this.setAttribute('role', 'checkbox');
 
 	    // Make tabable
@@ -103,12 +111,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 
 	  onClick(e) {
+	    debug('click');
 	    e.stopPropagation();
 	    if (this.disabled) return;
 	    this.checked = !this.checked;
 	  },
 
 	  toggle(value) {
+	    debug('toggle', value);
 	    value = arguments.length ? value : !this.checked;
 	    if (value || value === '') this.check();
 	    else this.uncheck();
@@ -120,6 +130,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.setAttr('checked', '');
 	    this.setAttribute('aria-checked', true);
 	    this._checked = true;
+	    debug('checked');
 	  },
 
 	  uncheck() {
@@ -128,12 +139,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.removeAttr('checked');
 	    this.setAttribute('aria-checked', false);
 	    this._checked = false;
+	    debug('unchecked');
 	  },
 
 	  attrs: {
 	    checked: {
 	      get() { return !!this._checked; },
-	      set() { this.toggle(); }
+	      set(value) {
+	        value = !!value || value === '';
+	        this.toggle(value);
+	      }
 	    },
 
 	    danger: {
